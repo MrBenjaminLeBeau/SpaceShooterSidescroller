@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://3ldhngia6yk8"]
+
+[ext_resource type="Texture2D" uid="uid://c44286qxsbwis" path="res://Graphics/laser.png" id="1_1ud77"]
+[ext_resource type="Script" path="res://Scenes/Projectiles/laser.gd" id="1_4rgqr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rn840"]
+radius = 3.0
+height = 14.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2ue60"]
+radius = 100.0
+
+[node name="Laser" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_4rgqr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1ud77")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_rn840")
+
+[node name="ChainDetectionArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChainDetectionArea"]
+shape = SubResource("CircleShape2D_2ue60")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -1,0 +1,136 @@
+[gd_scene load_steps=3 format=3 uid="uid://bg76y60nxpja3"]
+
+[ext_resource type="Script" path="res://Scripts/UI/player_upgrade_scene.gd" id="1_cdgl4"]
+[ext_resource type="Texture2D" uid="uid://c2wxj7hic28ha" path="res://Graphics/coin.png" id="2_di5vp"]
+
+[node name="PlayerUpgradeScene" type="Node2D"]
+script = ExtResource("1_cdgl4")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PlayerMoney" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+bbcode_enabled = true
+text = "0 [img]res://Graphics/coin.png[/img]"
+
+[node name="UpgradeTypes" type="VBoxContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="EnginesButton" type="Button" parent="CanvasLayer/UpgradeTypes"]
+layout_mode = 2
+text = "Engines"
+
+[node name="ShieldsButton" type="Button" parent="CanvasLayer/UpgradeTypes"]
+layout_mode = 2
+text = "Shields"
+
+[node name="WeaponsButton" type="Button" parent="CanvasLayer/UpgradeTypes"]
+layout_mode = 2
+text = "Weapons"
+
+[node name="EnginesUpgrades" type="HBoxContainer" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EngineSpeed" type="VBoxContainer" parent="CanvasLayer/EnginesUpgrades"]
+layout_mode = 2
+
+[node name="CurrentSpeed" type="Label" parent="CanvasLayer/EnginesUpgrades/EngineSpeed"]
+layout_mode = 2
+text = "Current Engine Speed: "
+
+[node name="SpeedUpgradeButton" type="Button" parent="CanvasLayer/EnginesUpgrades/EngineSpeed"]
+layout_mode = 2
+text = "100 = +25 Speed"
+icon = ExtResource("2_di5vp")
+alignment = 0
+
+[node name="EngineBoost" type="VBoxContainer" parent="CanvasLayer/EnginesUpgrades"]
+layout_mode = 2
+
+[node name="CurrentBoost" type="Label" parent="CanvasLayer/EnginesUpgrades/EngineBoost"]
+layout_mode = 2
+text = "Current Boost Amount: "
+
+[node name="BoostUpgradeButton" type="Button" parent="CanvasLayer/EnginesUpgrades/EngineBoost"]
+layout_mode = 2
+text = "100 = +25 Boost"
+icon = ExtResource("2_di5vp")
+alignment = 0
+
+[node name="ShieldsUpgrades" type="HBoxContainer" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ShieldAmount" type="VBoxContainer" parent="CanvasLayer/ShieldsUpgrades"]
+layout_mode = 2
+
+[node name="CurrentShieldAmount" type="Label" parent="CanvasLayer/ShieldsUpgrades/ShieldAmount"]
+layout_mode = 2
+text = "Current Max Shields: "
+
+[node name="ShieldUpgradeButton" type="Button" parent="CanvasLayer/ShieldsUpgrades/ShieldAmount"]
+layout_mode = 2
+text = "100 = +25 Max Shields"
+icon = ExtResource("2_di5vp")
+alignment = 0
+
+[node name="RechargeTime" type="VBoxContainer" parent="CanvasLayer/ShieldsUpgrades"]
+layout_mode = 2
+
+[node name="CurrentShieldRecharge" type="Label" parent="CanvasLayer/ShieldsUpgrades/RechargeTime"]
+layout_mode = 2
+text = "Current Shield Recharge: "
+
+[node name="RechargeUpgradeButton" type="Button" parent="CanvasLayer/ShieldsUpgrades/RechargeTime"]
+layout_mode = 2
+text = "100 = -1 Second"
+icon = ExtResource("2_di5vp")
+alignment = 0
+
+[node name="NextFlightButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -82.0
+offset_top = -31.0
+offset_right = 82.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "START NEXT FLIGHT!"
+
+[connection signal="pressed" from="CanvasLayer/UpgradeTypes/EnginesButton" to="." method="_on_engines_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UpgradeTypes/ShieldsButton" to="." method="_on_shields_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/EnginesUpgrades/EngineSpeed/SpeedUpgradeButton" to="." method="_on_speed_upgrade_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/EnginesUpgrades/EngineBoost/BoostUpgradeButton" to="." method="_on_boost_upgrade_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ShieldsUpgrades/ShieldAmount/ShieldUpgradeButton" to="." method="_on_shield_upgrade_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ShieldsUpgrades/RechargeTime/RechargeUpgradeButton" to="." method="_on_recharge_upgrade_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/NextFlightButton" to="." method="_on_next_flight_button_pressed"]

@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://c843kovf5jgc7"]
+
+[ext_resource type="Texture2D" uid="uid://bheu0lgvuingo" path="res://Graphics/ui_graphics/progress_bar_background.png" id="1_jyjtm"]
+[ext_resource type="Script" path="res://Scripts/UI/ui.gd" id="1_qorde"]
+[ext_resource type="Texture2D" uid="uid://bullut05ote27" path="res://Graphics/ui_graphics/progress_bar_outline.png" id="2_001xk"]
+[ext_resource type="Texture2D" uid="uid://jm3d7n71amgs" path="res://Graphics/ui_graphics/health_bar_progress.png" id="3_sjyj2"]
+[ext_resource type="Texture2D" uid="uid://dnu6goloxng3n" path="res://Graphics/ui_graphics/shield_bar_progress.png" id="5_g0enk"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qorde")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -350.0
+offset_top = -40.0
+offset_right = 350.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+offset_left = 1.0
+offset_top = 318.0
+offset_right = 269.0
+offset_bottom = 362.0
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="PlayerShieldBar" type="TextureProgressBar" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+value = 100.0
+texture_under = ExtResource("1_jyjtm")
+texture_over = ExtResource("2_001xk")
+texture_progress = ExtResource("5_g0enk")
+
+[node name="PlayerHealthBar" type="TextureProgressBar" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+value = 100.0
+texture_under = ExtResource("1_jyjtm")
+texture_over = ExtResource("2_001xk")
+texture_progress = ExtResource("3_sjyj2")
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="PlayerMoney" type="RichTextLabel" parent="CanvasLayer/MarginContainer2"]
+layout_mode = 2
+bbcode_enabled = true
+text = "0 [img]res://Graphics/coin.png[/img]"
+fit_content = true
+autowrap_mode = 0

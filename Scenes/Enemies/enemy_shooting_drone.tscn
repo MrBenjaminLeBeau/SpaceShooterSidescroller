@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://1x3i4d08qljt"]
+
+[ext_resource type="Script" path="res://Scripts/Enemies/enemy_shooting_drone.gd" id="1_bhedl"]
+[ext_resource type="Texture2D" uid="uid://unesnm237grh" path="res://Graphics/shooting_drone.png" id="2_xripo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2b5jl"]
+radius = 15.0
+
+[node name="ShootingDrone" type="Area2D" groups=["Enemy"]]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_bhedl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_xripo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2b5jl")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(0.1, 0.1)
+
+[node name="ShootingTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="ShootingTimer" to="." method="_on_shooting_timer_timeout"]

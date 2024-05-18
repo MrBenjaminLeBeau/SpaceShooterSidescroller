@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://ciktf0n7amgpj"]
+
+[ext_resource type="Texture2D" uid="uid://crskxr4pvc5or" path="res://Graphics/TestGraphics/hull1.png" id="1_jbwoj"]
+[ext_resource type="Texture2D" uid="uid://diprtdmpk0fqi" path="res://Graphics/TestGraphics/engine1.png" id="2_qkjin"]
+[ext_resource type="Texture2D" uid="uid://binpdjsfu2fan" path="res://Graphics/TestGraphics/gun1.png" id="3_lb5me"]
+
+[node name="TestPlayerGraphics" type="Node2D"]
+position = Vector2(100, 100)
+
+[node name="Hull" type="Sprite2D" parent="."]
+texture = ExtResource("1_jbwoj")
+
+[node name="Engine" type="Sprite2D" parent="."]
+position = Vector2(0, 16)
+texture = ExtResource("2_qkjin")
+
+[node name="Gun1" type="Sprite2D" parent="."]
+position = Vector2(-10, -3)
+texture = ExtResource("3_lb5me")
+
+[node name="Gun2" type="Sprite2D" parent="."]
+position = Vector2(10, -3)
+texture = ExtResource("3_lb5me")

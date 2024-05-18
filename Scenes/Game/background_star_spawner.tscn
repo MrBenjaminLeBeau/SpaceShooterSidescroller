@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqyd1rukuqd28"]
+
+[ext_resource type="Script" path="res://Scripts/background_star_spawner.gd" id="1_ivb2d"]
+[ext_resource type="PackedScene" uid="uid://cjeudeh5imdqc" path="res://Scenes/Game/star_sprite.tscn" id="2_pfrvd"]
+
+[node name="BackgroundStarSpawner" type="Node2D"]
+script = ExtResource("1_ivb2d")
+star_sprite_scene = ExtResource("2_pfrvd")
+
+[node name="StarSpawnTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="StarSpawnTimer" to="." method="_on_star_spawn_timer_timeout"]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://csdo0ihhn7x58"]
+
+[ext_resource type="PackedScene" uid="uid://bmhqu4lq0m8t5" path="res://Scenes/Player/player.tscn" id="1_f00ww"]
+[ext_resource type="PackedScene" uid="uid://c843kovf5jgc7" path="res://Scenes/UI/ui.tscn" id="3_rc7xy"]
+[ext_resource type="PackedScene" uid="uid://coitu638taawl" path="res://Scenes/Enemies/enemy_spawner.tscn" id="4_vqqdc"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_f00ww")]
+position = Vector2(128, 94)
+
+[node name="EnemySpawner" parent="." instance=ExtResource("4_vqqdc")]
+
+[node name="UI" parent="." instance=ExtResource("3_rc7xy")]
+offset_top = 360.0
+offset_bottom = 360.0
